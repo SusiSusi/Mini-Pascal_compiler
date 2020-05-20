@@ -1,0 +1,104 @@
+program Test;
+
+var parameter : integer;
+var sum : integer;
+var ii : string;
+var yy : string;
+var real_ : real;
+
+function Count(a : integer; b : integer) : integer; 
+  var x : integer;
+  var k : Boolean;
+  var as : real;
+  begin
+    x := 3;
+    x := a % b / 2 + (5 * 2 * 6 * 9) / 8;
+    a := 3;
+    k := true;
+    as := 2.1 / 1.2;
+    writeln("Real as: ", as);
+    writeln("*****");
+    return x;
+  end;
+
+function TestArray(data : array [] of integer) : integer;
+  begin
+    data[0] := 88;
+    return data[0];
+  end;
+
+procedure TestProc(n : real);
+  begin
+    writeln("TestProc says: ", (n * 2.2));
+  end;
+
+begin { Main }
+  var Ary : array [2] of integer; 
+  Ary[0] := 466;
+  writeln("Ary size: ", Ary.size);
+  writeln("*****");
+
+  read(Ary[1], Ary[0]);
+  writeln("your input:", Ary[1], Ary[0]);
+  sum := TestArray(Ary);
+  writeln("After TestArray:", Ary[0], Ary[1]);
+  writeln("sum:", sum);
+  writeln("*****");
+
+  real_ := 2.4 / 2.1 * 4.2 * 2.3;
+  writeln("real_:", real_);
+  TestProc(real_);
+
+  ii := "ii";
+  yy := "yy";
+  assert (ii <> yy);
+  sum := Count(8,2);
+  writeln("func Count returns", sum);
+  writeln("*******");
+
+  parameter := 21;
+  while (parameter>9) or (parameter<3) do
+    begin
+      parameter := parameter - 1;
+      writeln (parameter);
+    end;
+end.  { Main }
+
+
+{* program Recursion;
+function F(n: integer) : integer;
+begin
+  writeln(n);
+  if n = 0 then 
+    return 1;
+  else 
+    return M(n-1);
+end;
+
+function M(n: integer) : integer;
+begin
+  writeln(n);
+  if n = 0 then return 0;
+  else return F(n-1);
+end;
+
+begin
+  var i : integer;
+  i := 5;
+  while i > 1 do F(i);
+end.
+*}
+
+{*
+program Test2;
+begin
+    var i, j : integer;
+    writeln ("give two numbers");
+    read (i, j);
+    while i <> j do
+        if i > j then i := i - j;
+        else j := j - i;
+    writeln (i);
+    writeln (j);
+end.
+*}
